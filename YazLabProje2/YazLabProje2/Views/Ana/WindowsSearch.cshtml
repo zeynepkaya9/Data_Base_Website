@@ -1,0 +1,64 @@
+﻿
+@{
+    Layout = null;
+    string dosyaAd = @"C:\Users\ZEYNEP\Desktop\4.Sınıf\";
+    DirectoryInfo fileInfo = new DirectoryInfo(dosyaAd);
+
+    string[] fileArray = Directory.GetDirectories(dosyaAd);
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>WindowsSearch</title>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <style>
+        body {
+            background-color: darkgray;
+        }
+
+        .searchBar {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .liste {
+            margin: 50px 200px 100px 200px;
+            font-size: 15px;
+        }
+
+        .linkAna {
+            margin-top: 20px;
+            margin-left: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="linkAna">
+        <a class="btn btn-warning" href="https://localhost:44320/Ana/Index" role="button">Anasayfa</a>
+    </div>
+    <div class="searchBar">
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+    <div class="liste">
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-danger">Dosyalar</li>
+            @{
+
+                foreach (FileInfo e2 in fileInfo.GetFiles())
+                {
+
+                    <li class="list-group-item">@e2.Name</li>
+                }
+            }
+        </ul>
+    </div>
+</body>
+</html>

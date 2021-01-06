@@ -39,16 +39,14 @@
         <a class="btn btn-warning" href="https://localhost:44320/Ana/Index" role="button">Anasayfa</a>
     </div>
     <div class="searchBar">
-        <form class="form-inline my-2 my-lg-0" action="https://localhost:44320/Ana/WindowsAraSubmit" method="post">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="WDtxt"  name="aranan">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" >Search</button>
-            </form>
-
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
     </div>
     <div class="liste">
         <ul class="list-group">
             <li class="list-group-item list-group-item-danger">Dosyalar</li>
-
 
             @foreach (var item in Model)
             {

@@ -1,9 +1,7 @@
-﻿
+﻿@model List<YazLabProje2.Models.Dosyalar>
 @{
     Layout = null;
 
-    string dosyaAd = @"C:\Users\ZEYNEP\Desktop\4.Sınıf\";
-    DosyaListele islem = new DosyaListele();
 
 
 }
@@ -27,9 +25,20 @@
             margin-top: 10px;
         }
 
-        .liste {
-            margin: 50px 200px 100px 200px;
+        .liste1 {
+            margin: 50px 100px 10px 100px;
             font-size: 15px;
+        }
+        table {
+            background-color: white;
+        }
+            .liste1 table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+        th, td {
+            padding: 15px;
+            text-align: left;
         }
 
         .linkAna {
@@ -49,16 +58,36 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
     </div>
-    <div class="liste">
-        <ul class="list-group">
-            <li class="list-group-item list-group-item-danger">Dosyalar</li>
-            @{
+    <div class="liste1">
+        <table>
 
+            <tr>
+                <th>Dosyalar</th>
+                <th>Uzantı</th>
+                <th>Tarih</th>
+                <th>KiloByte</th>
+                <th>MegaByte</th>
+                <th>GigaByte</th>
+            </tr>
 
-                    <li class="list-group-item">@islem.listele(dosyaAd)</li>
-            }
-        </ul>
+                @foreach (var item in Model)
+                { 
+
+        <tr>
+
+            <td>@item.dosyaAdi</td>
+            <td>@item.Extension</td>
+            <td>@item.DateTime</td>
+            <td>@item.sizeKB</td>
+            <td>@item.sizeMB</td>
+            <td>@item.sizeGB</td>
+
+        </tr>
+                 }
+        </table>
     </div>
+ 
+
 </body>
 </html>
 

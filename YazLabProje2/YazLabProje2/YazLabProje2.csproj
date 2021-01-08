@@ -169,6 +169,7 @@
     <Content Include="Views\Ana\WindowsSearch.cshtml" />
     <Content Include="Views\Ana\SQLSearch.cshtml" />
     <Content Include="Views\Ana\WindowsAraSubmit.cshtml" />
+    <Content Include="Views\Ana\SQLAraSubmit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

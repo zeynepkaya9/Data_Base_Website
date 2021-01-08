@@ -1,0 +1,163 @@
+﻿
+@model List<YazLabProje2.Models.Dosyalar>
+@{
+    Layout = null;
+
+
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SQLSearch</title>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <style>
+        body {
+            background-color: darkgray;
+        }
+
+        .searchBar {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .liste1 {
+            margin: 50px 10px 10px 10px;
+            font-size: 15px;
+        }
+
+        table {
+            background-color: antiquewhite;
+        }
+
+        .liste1 table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 5px;
+            text-align: left;
+        }
+
+        .linkAna {
+            margin-top: 20px;
+            margin-left: 200px;
+        }
+        .mesaj {
+            width: auto;
+            height: 50px;
+            font-size: 25px;
+            text-align: center;
+            margin-top: 20px;
+            margin-left: 50px;
+            margin-right: 50px;
+            background-color: black;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="linkAna">
+        <a class="btn btn-warning" href="https://localhost:44320/Ana/Index" role="button">Anasayfa</a>
+    </div>
+    <div class="searchBar">
+        <form class="form-inline my-2 my-lg-0" method="post">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="width:600px;" name="komut">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+
+    </div>
+    <div class="mesaj">
+       <b> <p style="color:darkred;">@ViewBag.mesaj</p></b>
+    </div>
+
+    <div class="liste1">
+        <table>
+            <tr>
+                @{
+                    for (int i = 0; i < 1; i++)
+                    {
+                        if (Model[i].dosyaAdi != null)
+                        {
+                            <th>Dosyalar</th>
+                        }
+                        if (Model[i].Extension != null)
+                        {
+                            <th>Uzantı</th>
+                        }
+                        if (Model[i].DateTime != null)
+                        {
+                            <th>Tarih</th>
+                        }
+                        if (Model[i].sizeKB != 0.0)
+                        {
+                            <th>KiloByte</th>
+                        }
+                        if (Model[i].sizeMB != 0.0)
+                        {
+                            <th>MegaByte</th>
+                        }
+                        if (Model[i].sizeGB != 0.0)
+                        {
+                            <th>GigaByte</th>
+                        }
+                        if (Model[i].FilePath != null)
+                        {
+                            <th>Dosya yolu</th>
+                        }
+
+                    }
+                }
+            </tr>
+
+            @foreach (var item in Model)
+            {
+
+        <tr>
+
+            @{
+                if (item.dosyaAdi != null)
+                {
+                    <td>@item.dosyaAdi</td>
+                }
+                if (item.Extension != null)
+                {
+                    <td>@item.Extension</td>
+                }
+                if (item.DateTime != null)
+                {
+                    <td>@item.DateTime</td>
+                }
+                if (item.sizeKB != 0.0)
+                {
+                    <td>@item.sizeKB</td>
+                }
+                if (item.sizeMB != 0.0)
+                {
+                    <td>@item.sizeMB</td>
+                }
+                if (item.sizeGB != 0.0)
+                {
+                    <td>@item.sizeGB</td>
+                }
+                if (item.FilePath != null)
+                {
+                    <td>@item.FilePath</td>
+                }
+            }
+        </tr>
+            }
+        </table>
+    </div>
+
+
+</body>
+</html>
+

@@ -14,7 +14,7 @@
     <title>SQLSearch</title>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
     <style>
         body {
             background-color: darkgray;
@@ -26,18 +26,21 @@
         }
 
         .liste1 {
-            margin: 50px 100px 10px 100px;
+            margin: 50px 10px 10px 10px;
             font-size: 15px;
         }
+
         table {
-            background-color: white;
+            background-color: antiquewhite;
         }
-            .liste1 table, th, td {
-                border: 1px solid black;
-                border-collapse: collapse;
-            }
+
+        .liste1 table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
         th, td {
-            padding: 15px;
+            padding: 5px;
             text-align: left;
         }
 
@@ -53,10 +56,11 @@
         <a class="btn btn-warning" href="https://localhost:44320/Ana/Index" role="button">Anasayfa</a>
     </div>
     <div class="searchBar">
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <form class="form-inline my-2 my-lg-0" method="post" action="https://localhost:44320/Ana/SQLAraSubmit">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="width:600px;" name="komut">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
+
     </div>
     <div class="liste1">
         <table>
@@ -68,26 +72,27 @@
                 <th>KiloByte</th>
                 <th>MegaByte</th>
                 <th>GigaByte</th>
+                <th>Dosya Yolu</th>
             </tr>
 
-                @foreach (var item in Model)
-                { 
+            @foreach (var item in Model)
+            {
 
-        <tr>
+                <tr>
 
-            <td>@item.dosyaAdi</td>
-            <td>@item.Extension</td>
-            <td>@item.DateTime</td>
-            <td>@item.sizeKB</td>
-            <td>@item.sizeMB</td>
-            <td>@item.sizeGB</td>
-
-        </tr>
-                 }
+                    <td>@item.dosyaAdi</td>
+                    <td>@item.Extension</td>
+                    <td>@item.DateTime</td>
+                    <td>@item.sizeKB</td>
+                    <td>@item.sizeMB</td>
+                    <td>@item.sizeGB</td>
+                    <td>@item.FilePath</td>
+                </tr>
+            }
         </table>
     </div>
- 
 
+  
 </body>
 </html>
 

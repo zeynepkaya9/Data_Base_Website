@@ -12,6 +12,7 @@ namespace YazLabProje2.Models
         public string dosyaAdi { get; set; }
         public string Extension { get; set; }
         public string DateTime { get; set; }
+        public string FilePath { get; set; }
 
         public double sizeKB  { get; set; }
         public double sizeMB { get; set; }

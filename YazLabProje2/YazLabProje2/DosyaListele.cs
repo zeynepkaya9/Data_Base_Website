@@ -27,7 +27,8 @@ namespace YazLabProje2
                     DateTime = e2.LastWriteTime.ToShortDateString(),
                     sizeKB = e2.Length / 1024.0,
                     sizeMB = e2.Length / 1048576.0,
-                    sizeGB = e2.Length / 1073741824.0
+                    sizeGB = e2.Length / 1073741824.0,
+                    FilePath = dosyaAd
                 });
 
             }
@@ -57,10 +58,7 @@ namespace YazLabProje2
         {
 
             DirectoryInfo fileInfo = new DirectoryInfo(dosyaAd);
-
             string[] fileArray = Directory.GetDirectories(dosyaAd);
-
-
             foreach (FileInfo e2 in fileInfo.GetFiles())
             {
 
@@ -74,6 +72,25 @@ namespace YazLabProje2
 
             return dosyaIsimler;
         }
+        public List<Dosyalar> insertCommand = new List<Dosyalar>();
+        //public List<Dosyalar> KomutInsert(string komut)
+        //{
+        //    string[] CommandSplit = komut.Split(' ');
+        //    return insertCommand;
+        //}
+        public string HataMesaj(string komut)
+        {
+            string[] CommandSplit = komut.Split(' ');
+            if (CommandSplit[0] != "INSERT"|| CommandSplit[0] != "SELECT" || CommandSplit[0] != "DELETE")
+            {
+                string hataMesj = "Syntax Hatası! İlk kelimeniz insert,select veya delete olmalıdır.";
+                return hataMesj;
+            }
+            else {
+                return null;
+            }
+        }
+
 
     }
 }
